@@ -426,6 +426,13 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    color-scheme: dark;
+  }
+
+  html,
+  body,
+  #root {
+    @apply min-h-dvh bg-background text-on-background;
   }
 
   @media (prefers-reduced-motion: reduce) {
