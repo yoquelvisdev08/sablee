@@ -1,0 +1,436 @@
+@import "tailwindcss";
+
+@import "@fontsource/big-shoulders-display/400.css";
+@import "@fontsource/big-shoulders-display/700.css";
+@import "@fontsource/big-shoulders-display/800.css";
+@import "@fontsource/big-shoulders-display/900.css";
+@import "@fontsource/new-amsterdam/400.css";
+@import "@fontsource/syncopate/400.css";
+@import "@fontsource/syncopate/700.css";
+@import "@fontsource/jetbrains-mono/400.css";
+@import "@fontsource/jetbrains-mono/500.css";
+@import "@fontsource/jetbrains-mono/700.css";
+
+@theme {
+  /* Colors - Apex Velocity Design System (base: #5d0412) */
+  --color-background: #131313;
+  --color-surface: #131313;
+  --color-surface-dim: #131313;
+  --color-surface-bright: #393939;
+  --color-surface-container-lowest: #0e0e0e;
+  --color-surface-container-low: #1c1b1b;
+  --color-surface-container: #20201f;
+  --color-surface-container-high: #2a2a2a;
+  --color-surface-container-highest: #353535;
+  --color-surface-variant: #353535;
+  --color-surface-tint: #ff8a80;
+  --color-on-background: #e5e2e1;
+  --color-on-surface: #e5e2e1;
+  --color-on-surface-variant: #c4a0a0;
+  --color-inverse-surface: #e5e2e1;
+  --color-inverse-on-surface: #313030;
+  --color-inverse-primary: #4a0210;
+  --color-outline: #8a6060;
+  --color-outline-variant: #4a2a2a;
+  --color-primary: #ff8a80;
+  --color-on-primary: #4a0210;
+  --color-primary-container: #5d0412;
+  --color-on-primary-container: #ffdad6;
+  --color-primary-fixed: #ffdad6;
+  --color-primary-fixed-dim: #ff8a80;
+  --color-on-primary-fixed: #2a0108;
+  --color-on-primary-fixed-variant: #7a0518;
+  --color-secondary: #c8c6c5;
+  --color-on-secondary: #313030;
+  --color-secondary-container: #4a4949;
+  --color-on-secondary-container: #bab8b7;
+  --color-secondary-fixed: #e5e2e1;
+  --color-secondary-fixed-dim: #c8c6c5;
+  --color-on-secondary-fixed: #1c1b1b;
+  --color-on-secondary-fixed-variant: #474646;
+  --color-tertiary: #c6c6c6;
+  --color-on-tertiary: #2f3131;
+  --color-tertiary-container: #666767;
+  --color-on-tertiary-container: #e7e6e6;
+  --color-tertiary-fixed: #e3e2e2;
+  --color-tertiary-fixed-dim: #c6c6c6;
+  --color-on-tertiary-fixed: #1a1c1c;
+  --color-on-tertiary-fixed-variant: #464747;
+  --color-error: #ffb4ab;
+  --color-on-error: #690005;
+  --color-error-container: #93000a;
+  --color-on-error-container: #ffdad6;
+
+  /* Typography - Stitch fonts */
+  --font-headline: "Big Shoulders Display", sans-serif;
+  --font-body: "New Amsterdam", sans-serif;
+  --font-accent: "Syncopate", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  /* Spacing */
+  --spacing-margin-desktop: 64px;
+  --spacing-gutter: 24px;
+  --spacing-margin-mobile: 16px;
+  --spacing-container-max: 1440px;
+
+  /* Font sizes */
+  --text-headline-lg: 48px;
+  --text-headline-lg--line-height: 1.1;
+  --text-headline-lg--letter-spacing: -0.02em;
+  --text-headline-lg--font-weight: 900;
+
+  --text-headline-md: 32px;
+  --text-headline-md--line-height: 1.2;
+  --text-headline-md--font-weight: 800;
+
+  --text-body-lg: 18px;
+  --text-body-lg--line-height: 1.6;
+
+  --text-body-md: 16px;
+  --text-body-md--line-height: 1.5;
+
+  --text-label-sm: 12px;
+  --text-label-sm--line-height: 1.4;
+  --text-label-sm--letter-spacing: 0.1em;
+  --text-label-sm--font-weight: 500;
+}
+
+/* Utility classes */
+@utility brutalist-border {
+  border: 1px solid #c8c6c5;
+}
+
+@utility brutalist-shadow {
+  box-shadow: 4px 4px 0px #5d0412;
+}
+
+@utility halftone-bg {
+  background-image: radial-gradient(circle, rgba(93, 4, 18, 0.2) 2px, transparent 2.5px);
+  background-size: 10px 10px;
+}
+
+@utility speed-lines {
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 10px,
+    rgba(255, 255, 255, 0.05) 10px,
+    rgba(255, 255, 255, 0.05) 11px
+  );
+}
+
+@utility grunge {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+}
+
+/* Hero section animations */
+@keyframes hero-enter {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 32px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes hero-ken-burns {
+  from {
+    transform: scale(1.06);
+  }
+  to {
+    transform: scale(1.14);
+  }
+}
+
+@keyframes hero-scan {
+  0% {
+    transform: translateY(-120%);
+    opacity: 0;
+  }
+  8% {
+    opacity: 0.35;
+  }
+  100% {
+    transform: translateY(120vh);
+    opacity: 0;
+  }
+}
+
+@keyframes hero-speed-drift {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 120px 120px;
+  }
+}
+
+@keyframes hero-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes hero-glow {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.75;
+  }
+}
+
+@utility hero-animate-in {
+  animation: hero-enter 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@utility hero-animate-delay-1 {
+  animation-delay: 0.1s;
+}
+
+@utility hero-animate-delay-2 {
+  animation-delay: 0.22s;
+}
+
+@utility hero-animate-delay-3 {
+  animation-delay: 0.34s;
+}
+
+@utility hero-animate-delay-4 {
+  animation-delay: 0.46s;
+}
+
+@utility hero-animate-delay-5 {
+  animation-delay: 0.58s;
+}
+
+@utility hero-animate-delay-6 {
+  animation-delay: 0.7s;
+}
+
+@utility hero-ken-burns {
+  animation: hero-ken-burns 22s ease-in-out infinite alternate;
+}
+
+@utility hero-scan-line {
+  animation: hero-scan 7s linear infinite;
+}
+
+@utility hero-speed-drift {
+  animation: hero-speed-drift 18s linear infinite;
+}
+
+@utility hero-progress-bar {
+  transform-origin: left center;
+  animation: hero-progress 1.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 0.9s;
+}
+
+@utility hero-glow-pulse {
+  animation: hero-glow 3s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-ken-burns,
+  .hero-scan-line,
+  .hero-speed-drift,
+  .hero-glow-pulse,
+  .hero-progress-bar,
+  .hero-animate-in,
+  .team-slide-enter,
+  .team-panel-enter,
+  .team-slide-enter-right,
+  .team-slide-enter-left,
+  .team-slide-exit-left,
+  .team-slide-exit-right,
+  .section-reveal,
+  .popup-backdrop-in,
+  .popup-panel-in {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .hero-animate-in,
+  .team-slide-enter,
+  .team-panel-enter,
+  .team-slide-enter-right,
+  .team-slide-enter-left,
+  .team-slide-exit-left,
+  .team-slide-exit-right,
+  .section-reveal-hidden,
+  .section-reveal-visible,
+  .popup-backdrop-in,
+  .popup-panel-in {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Team section animations */
+@keyframes team-slide-in-right {
+  from {
+    opacity: 0;
+    transform: translate3d(28px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes team-slide-in-left {
+  from {
+    opacity: 0;
+    transform: translate3d(-28px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes team-panel-enter {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes team-slide-out-left {
+  from {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    opacity: 0;
+    transform: translate3d(-36px, 0, 0);
+  }
+}
+
+@keyframes team-slide-out-right {
+  from {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    opacity: 0;
+    transform: translate3d(36px, 0, 0);
+  }
+}
+
+@utility team-slide-exit-left {
+  animation: team-slide-out-left 0.28s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+@utility team-slide-exit-right {
+  animation: team-slide-out-right 0.28s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+@utility team-slide-enter-right {
+  animation: team-slide-in-right 0.52s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@utility team-slide-enter-left {
+  animation: team-slide-in-left 0.52s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@utility team-panel-enter {
+  animation: team-panel-enter 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@utility section-reveal-hidden {
+  opacity: 0;
+  transform: translate3d(0, 24px, 0);
+}
+
+@utility section-reveal {
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+@utility section-reveal-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.section-reveal.hero-animate-delay-1 { transition-delay: 0.1s; }
+.section-reveal.hero-animate-delay-2 { transition-delay: 0.22s; }
+.section-reveal.hero-animate-delay-3 { transition-delay: 0.34s; }
+.section-reveal.hero-animate-delay-4 { transition-delay: 0.46s; }
+.section-reveal.hero-animate-delay-5 { transition-delay: 0.58s; }
+.section-reveal.hero-animate-delay-6 { transition-delay: 0.7s; }
+.section-reveal.hero-animate-delay-7 { transition-delay: 0.82s; }
+.section-reveal.hero-animate-delay-8 { transition-delay: 0.94s; }
+.section-reveal.hero-animate-delay-9 { transition-delay: 1.06s; }
+.section-reveal.hero-animate-delay-10 { transition-delay: 1.18s; }
+
+@utility hero-animate-delay-7 {
+  animation-delay: 0.82s;
+}
+
+@utility hero-animate-delay-8 {
+  animation-delay: 0.94s;
+}
+
+@utility hero-animate-delay-9 {
+  animation-delay: 1.06s;
+}
+
+@utility hero-animate-delay-10 {
+  animation-delay: 1.18s;
+}
+
+@keyframes popup-backdrop-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes popup-panel-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 28px, 0) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@utility popup-backdrop-in {
+  background: rgba(19, 19, 19, 0.82);
+  backdrop-filter: blur(6px);
+  animation: popup-backdrop-in 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@utility popup-panel-in {
+  animation: popup-panel-in 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 0.06s;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
