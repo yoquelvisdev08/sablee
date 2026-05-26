@@ -1,6 +1,7 @@
 import { useLanguage } from '../context/LanguageContext'
 import { useCtaModal } from '../context/CtaModalContext'
 import InstagramLink from './InstagramLink'
+import TicketsLink from './TicketsLink'
 import { useSectionReveal } from '../hooks/useSectionReveal'
 
 const LOGO_URL = '/images/logo-no-background.png'
@@ -68,10 +69,18 @@ export default function Footer() {
                 {locale === 'en' ? 'ES' : 'EN'}
               </button>
 
+              <TicketsLink
+                ariaLabel={t('footer.tickets-aria')}
+                className="inline-flex items-center gap-1.5 bg-primary-container px-4 py-2 font-mono text-[11px] font-medium uppercase tracking-[0.1em] text-on-primary-container transition-all duration-300 brutalist-border hover:bg-white hover:text-background active:scale-95"
+              >
+                <span className="material-symbols-outlined text-sm">confirmation_number</span>
+                {t('footer.tickets')}
+              </TicketsLink>
+
               <button
                 type="button"
                 onClick={openCtaModal}
-                className="inline-flex items-center gap-1.5 bg-primary-container px-4 py-2 font-mono text-[11px] font-medium uppercase tracking-[0.1em] text-on-primary-container transition-all duration-300 brutalist-border hover:bg-white hover:text-background active:scale-95"
+                className="inline-flex items-center gap-1.5 border border-outline-variant/60 bg-surface-container-lowest/80 px-4 py-2 font-mono text-[11px] font-medium uppercase tracking-[0.1em] text-secondary transition-all duration-300 hover:border-primary hover:text-primary active:scale-95"
               >
                 <span className="material-symbols-outlined text-sm">bolt</span>
                 {t('nav.join')}

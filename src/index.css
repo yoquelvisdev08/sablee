@@ -226,6 +226,23 @@
   animation: hero-speed-drift 18s linear infinite;
 }
 
+@keyframes hero-lines-boot {
+  from {
+    opacity: 0;
+    transform: translate3d(-12px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.hero-lines-boot {
+  animation:
+    hero-lines-boot 0.5s cubic-bezier(0.16, 1, 0.3, 1) both,
+    hero-speed-drift 18s linear 0.5s infinite;
+}
+
 @utility hero-progress-bar {
   transform-origin: left center;
   animation: hero-progress 1.4s cubic-bezier(0.16, 1, 0.3, 1) both;
@@ -237,8 +254,14 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .team-dossier-card,
+  .team-dossier-card:hover {
+    transform: none !important;
+  }
+
   .hero-ken-burns,
   .hero-scan-line,
+  .hero-lines-boot,
   .hero-speed-drift,
   .hero-glow-pulse,
   .hero-progress-bar,
@@ -421,6 +444,138 @@
 @utility popup-panel-in {
   animation: popup-panel-in 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
   animation-delay: 0.06s;
+}
+
+/* Team dossier — seccion distinta al resto del sitio */
+.team-dossier-section {
+  background-color: var(--color-primary-container);
+  background-image:
+    linear-gradient(165deg, rgba(255, 255, 255, 0.04) 0%, transparent 42%),
+    linear-gradient(-12deg, rgba(14, 14, 14, 0.35) 0%, transparent 55%);
+}
+
+.team-dossier-card {
+  transform: rotate(var(--team-rotate, 0deg));
+}
+
+.team-dossier-card:hover {
+  transform: rotate(0deg) translateY(-4px);
+}
+
+.team-dossier-scroll {
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-primary-fixed) transparent;
+}
+
+.team-dossier-scroll::-webkit-scrollbar {
+  height: 4px;
+}
+
+.team-dossier-scroll::-webkit-scrollbar-thumb {
+  background: var(--color-primary-fixed);
+}
+
+/* Partner cards — hover y entrada */
+.partner-card {
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.35s ease,
+    box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.35s ease;
+}
+
+.partner-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(209, 0, 28, 0.12) 0%,
+    transparent 45%,
+    rgba(255, 255, 255, 0.03) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.45s ease;
+  pointer-events: none;
+}
+
+.partner-card:hover::before,
+.partner-card:focus-visible::before {
+  opacity: 1;
+}
+
+.partner-card:hover,
+.partner-card:focus-visible {
+  transform: translateY(-6px);
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(255, 138, 128, 0.15);
+}
+
+.partner-card-logos img {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.partner-card:hover .partner-card-logos img:last-of-type,
+.partner-card:focus-visible .partner-card-logos img:last-of-type {
+  transform: scale(1.06);
+}
+
+.partner-card-bridge {
+  transform-origin: center;
+  transition:
+    width 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.35s ease;
+}
+
+.partner-card:hover .partner-card-bridge,
+.partner-card:focus-visible .partner-card-bridge {
+  width: 3.5rem;
+  background-color: var(--color-primary);
+}
+
+@keyframes partner-pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.85;
+  }
+}
+
+.partner-card-glow {
+  animation: partner-pulse 2.8s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .partner-card,
+  .partner-card::before,
+  .partner-card-logos img,
+  .partner-card-bridge,
+  .partner-card-glow {
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+  }
+
+  .partner-card:hover,
+  .partner-card:focus-visible {
+    transform: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .team-dossier-grid .team-dossier-card:nth-child(3n + 2) {
+    margin-top: 1.25rem;
+  }
+
+  .team-dossier-grid .team-dossier-card:nth-child(3n) {
+    margin-top: 0.5rem;
+  }
 }
 
 @layer base {

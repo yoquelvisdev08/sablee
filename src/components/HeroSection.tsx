@@ -1,5 +1,8 @@
+import { useEffect } from 'react'
 import { useLanguage } from '../context/LanguageContext'
+import { playHeroEntrySound } from '../lib/entrySound'
 import InstagramLink from './InstagramLink'
+import TicketsLink from './TicketsLink'
 
 const HERO_TEAM_IMAGE_URL = '/images/team-sables.jpg'
 
@@ -12,6 +15,8 @@ const HERO_BTN_SECONDARY = `${HERO_BTN_BASE} border border-outline-variant bg-su
 
 export default function HeroSection() {
   const { t } = useLanguage()
+
+  useEffect(() => playHeroEntrySound(), [])
 
   return (
     <section
@@ -36,7 +41,10 @@ export default function HeroSection() {
         {/* Atmospheric overlays */}
         <div className="absolute inset-0 grunge opacity-30 mix-blend-overlay" />
         <div className="hero-speed-drift absolute inset-0 halftone-bg opacity-15 mix-blend-overlay" />
-        <div className="hero-speed-drift absolute inset-0 speed-lines opacity-25" />
+        <div
+          className="hero-speed-drift hero-lines-boot absolute inset-0 speed-lines opacity-25"
+          aria-hidden="true"
+        />
         <div className="hero-glow-pulse absolute bottom-0 left-1/2 h-48 w-[min(90vw,720px)] -translate-x-1/2 bg-primary-container/25 blur-[100px]" />
         <div className="absolute bottom-0 inset-x-0 h-px bg-primary-container/60" />
 
@@ -53,6 +61,9 @@ export default function HeroSection() {
             </span>
             <span className="border border-outline-variant/60 bg-surface-container-lowest/70 px-3 py-1 font-mono text-[11px] uppercase tracking-[0.2em] text-on-surface-variant backdrop-blur-sm">
               {t('hero.pilots')}
+            </span>
+            <span className="border border-primary-container/80 bg-primary-container/90 px-3 py-1 font-mono text-[11px] uppercase tracking-[0.14em] text-on-primary-container backdrop-blur-sm">
+              {t('hero.event-badge')}
             </span>
           </div>
 
@@ -104,7 +115,24 @@ export default function HeroSection() {
 
           {/* Actions */}
           <div className="hero-animate-in hero-animate-delay-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap lg:flex-col">
-            <a href="#team" className={HERO_BTN_PRIMARY}>
+            <TicketsLink
+              ariaLabel={t('hero.cta-tickets-aria')}
+              className={`${HERO_BTN_PRIMARY} flex-col gap-1 sm:flex-row sm:gap-3`}
+            >
+              <span className="flex w-full items-center justify-center gap-3 sm:flex-1">
+                <span className="material-symbols-outlined text-xl transition-transform duration-300 group-hover:scale-110">
+                  confirmation_number
+                </span>
+                <span className="flex-1 text-center">{t('hero.cta-tickets')}</span>
+                <span className="material-symbols-outlined text-lg opacity-70 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
+                  arrow_outward
+                </span>
+              </span>
+              <span className="w-full text-center font-body text-[10px] normal-case tracking-normal text-on-primary-container/90 transition-colors duration-300 group-hover:text-background/85 sm:hidden">
+                {t('hero.cta-tickets-date')}
+              </span>
+            </TicketsLink>
+            <a href="#team" className={HERO_BTN_SECONDARY}>
               <span className="material-symbols-outlined text-xl transition-transform duration-300 group-hover:rotate-12 group-hover:scale-110">
                 groups
               </span>
@@ -113,7 +141,7 @@ export default function HeroSection() {
                 arrow_forward
               </span>
             </a>
-            <InstagramLink className={HERO_BTN_PRIMARY}>
+            <InstagramLink className={HERO_BTN_SECONDARY}>
               <span className="material-symbols-outlined text-xl transition-transform duration-300 group-hover:scale-110">
                 photo_camera
               </span>

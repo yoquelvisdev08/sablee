@@ -1,30 +1,19 @@
-export interface TeamMemberStats {
-  aero: number
-  structural: number
-}
-
 export interface TeamMember {
   id: string
   photo: string
-  badge: string
-  stats: TeamMemberStats
+  /** Rotacion visual en grados (estilo polaroid / collage) */
+  rotate: number
 }
 
 /**
- * Agrega integrantes aqui. Cada miembro necesita claves en translations:
- * team.members.{id}.name | role | desc | quote
+ * Integrantes del equipo. Cada miembro usa su ficha en public/images/integrantes/.
+ * Claves i18n: team.members.{id}.name | role | desc | image-alt
  */
 export const TEAM_MEMBERS: TeamMember[] = [
-  {
-    id: 'camila',
-    photo: '/images/camila.jpg',
-    badge: '94-Alpha',
-    stats: { aero: 98.4, structural: 102 },
-  },
-  {
-    id: 'mateo',
-    photo: '/images/team-sables.jpg',
-    badge: '02-Bravo',
-    stats: { aero: 97.1, structural: 100 },
-  },
+  { id: 'camila', photo: '/images/integrantes/camila.jpg', rotate: -2.5 },
+  { id: 'adelin', photo: '/images/integrantes/adelin.jpg', rotate: 2 },
+  { id: 'eidan', photo: '/images/integrantes/eidan.jpg', rotate: -1.5 },
+  { id: 'gabriel', photo: '/images/integrantes/gabriel.jpg', rotate: 2.5 },
+  { id: 'jared', photo: '/images/integrantes/jared.jpg', rotate: -2 },
+  { id: 'yule', photo: '/images/integrantes/yule.jpg', rotate: 1.5 },
 ]

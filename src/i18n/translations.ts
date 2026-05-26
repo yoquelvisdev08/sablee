@@ -9,6 +9,8 @@ export const translations: Record<Locale, Record<string, string>> = {
     'nav.shop': 'Merch',
     'nav.sponsors': 'Sponsors',
     'nav.join': 'JOIN TEAM',
+    'nav.tickets': 'TICKETS',
+    'nav.tickets-aria': 'Buy event tickets on TIX',
     'nav.instagram': 'Follow @sablee.st on Instagram',
     'nav.menu-open': 'Open menu',
     'nav.menu-close': 'Close menu',
@@ -23,6 +25,10 @@ export const translations: Record<Locale, Record<string, string>> = {
     'hero.system-value': '100%',
     'hero.aero': 'AERO ENGAGED',
     'hero.aero-value': 'MAX',
+    'hero.event-badge': 'NATIONAL EVENT',
+    'hero.cta-tickets': 'GET TICKETS',
+    'hero.cta-tickets-date': 'Jun 13, 2026 · 8:00 AM',
+    'hero.cta-tickets-aria': 'Buy tickets for the National STEM Racing event on TIX — June 13, 2026 at 8:00 AM',
     'hero.cta': 'MEET THE CREW',
     'hero.cta-instagram': 'FOLLOW ON IG',
     'hero.cta-secondary': 'VIEW MERCH',
@@ -30,23 +36,52 @@ export const translations: Record<Locale, Record<string, string>> = {
 
     // TeamSection
     'team.subtitle': '01 // PERSONNEL',
-    'team.heading': 'THE CREW',
-    'team.telemetry': 'LIVE TELEMETRY',
-    'team.aero-label': 'Aero Efficiency',
-    'team.structural-label': 'Structural Integrity',
-    'team.rig-title': 'Simulation Rig Active',
-    'team.rig-desc': 'Running real-time telemetry and stress analysis on the latest chassis config.',
-    'team.prev': 'Previous member',
-    'team.next': 'Next member',
-    'team.select': 'View member',
+    'team.heading': 'CREW DOSSIER',
+    'team.intro':
+      'Each card is a throwback portrait and role on the team — design, manufacturing, marketing, and finance. Tap a card to read the full profile.',
+    'team.roster-label': 'Active roster',
+    'team.roster-unit': 'crew members',
+    'team.scroll-hint': 'Swipe the dossier wall →',
+    'team.tap-hint': 'Tap a card to open the full dossier',
+    'team.expand': 'Open',
+    'team.view-member': 'View crew member',
+    'team.view-close': 'Close dossier',
     'team.members.camila.name': 'CAMILA',
     'team.members.camila.role': 'DESIGN & SIMULATION',
-    'team.members.camila.desc': 'From the streets of São Paulo to the simulation rig, Camila brings raw precision to every virtual lap. Her telemetry analysis and design algorithms redefine what\'s possible in digital aerodynamics.',
-    'team.members.camila.quote': 'NO FEAR. ONLY DATA.',
-    'team.members.mateo.name': 'MATEO',
-    'team.members.mateo.role': 'RACE ENGINEERING',
-    'team.members.mateo.desc': 'Mateo calibrates every stint from pit wall to simulator. His setup sheets and live strategy calls keep the crew synchronized when milliseconds decide the outcome.',
-    'team.members.mateo.quote': 'PRECISION IS PACE.',
+    'team.members.camila.desc':
+      'She leads car design and simulation — shaping every concept before it hits the rig or the track.',
+    'team.members.camila.image-alt':
+      'Camila crew card: childhood portrait with design and simulation role.',
+    'team.members.adelin.name': 'ADELIN',
+    'team.members.adelin.role': 'DESIGN & MANUFACTURING',
+    'team.members.adelin.desc':
+      'Part of the design and manufacturing crew — from sketches to parts that actually get built.',
+    'team.members.adelin.image-alt':
+      'Adelin crew card: childhood portrait with design and manufacturing role.',
+    'team.members.eidan.name': 'EIDAN',
+    'team.members.eidan.role': 'DESIGN & MARKETING',
+    'team.members.eidan.desc':
+      'On the car design team and marketing — connecting engineering choices with how the crew shows up publicly.',
+    'team.members.eidan.image-alt':
+      'Eidan crew card: childhood portrait with design and marketing role.',
+    'team.members.gabriel.name': 'GABRIEL',
+    'team.members.gabriel.role': 'DESIGN & FINANCE',
+    'team.members.gabriel.desc':
+      'Handles car design and team finances — keeping the project feasible while pushing performance.',
+    'team.members.gabriel.image-alt':
+      'Gabriel crew card: childhood portrait with design and finance role.',
+    'team.members.jared.name': 'JARED',
+    'team.members.jared.role': 'MARKETING & CONTENT',
+    'team.members.jared.desc':
+      'Designs our posts and runs marketing — the voice and visuals the public sees from pit lane to feed.',
+    'team.members.jared.image-alt':
+      'Jared crew card: childhood portrait with marketing and content role.',
+    'team.members.yule.name': 'YULE',
+    'team.members.yule.role': 'DESIGN & MANUFACTURING',
+    'team.members.yule.desc':
+      'Part of the design and manufacturing team — turning concepts into parts the car can run with.',
+    'team.members.yule.image-alt':
+      'Yule crew card: childhood portrait with design and manufacturing role.',
 
     // AboutSection
     'about.subtitle': '01.5 // COMPETITION',
@@ -63,6 +98,17 @@ export const translations: Record<Locale, Record<string, string>> = {
     'about.image-badge': 'STEM / RD',
     'about.image-tag': 'AGES 11–19',
     'about.footer-status': 'STEM RACING / 2026',
+    'about.video-cta': 'STEM RACING CURIOSITIES',
+    'about.video-cta-hint': 'Short video · facts & how the competition works',
+    'about.video-modal-badge': 'VIDEO BRIEFING',
+    'about.video-modal-title': 'STEM Racing curiosities',
+    'about.video-modal-desc':
+      'Discover how the competition works, what teams face on track, and why STEM Racing matters in the Dominican Republic.',
+    'about.video-close': 'Close video',
+    'about.video-play': 'Play video',
+    'about.tickets-cta': 'GET EVENT TICKETS',
+    'about.tickets-cta-hint': 'National STEM Racing · Jun 13, 2026 · 8:00 AM',
+    'about.tickets-aria': 'Buy tickets on TIX for the National STEM Racing event',
 
     // ShopSection (team merchandising — not a store)
     'shop.subtitle': '02 // MERCHANDISING',
@@ -80,23 +126,59 @@ export const translations: Record<Locale, Record<string, string>> = {
     'shop.footer-right': 'NOT FOR SALE',
 
     // PartnersSection
-    'partners.subtitle': 'Partners',
+    'partners.subtitle': '03 // ALLIES',
     'partners.heading': 'In alliance with',
-    'partners.solvex-label': 'Official technical partner of Team SABLE.',
-    'partners.motoruedas-label': 'Official ally supporting Team SABLE.',
-    'partners.rbw-label': 'Official ally of Team SABLE.',
-    'partners.apolo27-label': 'Official ally of Team SABLE.',
-    'partners.junta-sanluis-label': 'Institutional ally of Team SABLE.',
+    'partners.intro':
+      'Brands and institutions that fuel SABLE on and off the track — from software and mobility to engineering and community.',
     'partners.slot-code': 'ALLY',
-    'partners.tap-hint': 'Tap a card to view the ally logo',
-    'partners.view-partner': 'View partner',
-    'partners.view-close': 'Close preview',
+    'partners.tap-hint': 'Tap a card for the full ally profile',
+    'partners.read-more': 'View profile',
+    'partners.view-partner': 'View ally',
+    'partners.view-close': 'Close profile',
+    'partners.thanks-heading': 'Message to the crew',
+    'partners.category.technical': 'Technical partner',
+    'partners.category.automotive': 'Automotive ally',
+    'partners.category.institutional': 'Institutional ally',
+    'partners.category.engineering': 'Engineering ally',
+    'partners.solvex.name': 'SOLVEX DOMINICANA',
+    'partners.solvex.role': 'Digital solutions & cloud services',
+    'partners.solvex.desc':
+      'Solvex Dominicana is a technology and innovation company focused on digital solutions, software development, and cloud services — driving technological transformation across multiple sectors.',
+    'partners.solvex.thanks':
+      'As SABLE’s official technical partner, Solvex backs the tools, systems, and digital backbone that keep the crew competitive.',
+    'partners.motoruedas.name': 'MOTORUEDAS',
+    'partners.motoruedas.role': 'Motorcycle & mobility sponsor',
+    'partners.motoruedas.desc':
+      'Motoruedas joined as a SABLE sponsor, backing a movement built when different visions come together to create something bigger.',
+    'partners.motoruedas.thanks':
+      'Thank you for betting on us and being part of a story that still has a lot to show on track.',
+    'partners.rbw.name': 'RBW AUTO IMPORT',
+    'partners.rbw.role': 'Vehicle import & sales',
+    'partners.rbw.desc':
+      'RBW Auto Import imports and sells vehicles with quality, trust, and an experience designed for people who love the automotive world.',
+    'partners.rbw.thanks':
+      'At SABLE we are proud of their support and that they are part of this creative movement underway.',
+    'partners.apolo27.name': 'APOLO 27 GT',
+    'partners.apolo27.role': 'INTEC · Formula Student Spain 2026',
+    'partners.apolo27.desc':
+      'University engineering project from INTEC building a formula-style single-seater to represent the Dominican Republic at Formula Student Spain 2026 (Barcelona, Aug 1–7) — the same spirit of applied engineering as STEM Racing.',
+    'partners.apolo27.thanks':
+      'A fellow crew pushing Dominican talent onto the global motorsport and engineering stage.',
+    'partners.junta-sanluis.name': 'JUNTA MUNICIPAL SAN LUIS',
+    'partners.junta-sanluis.role': 'Distrito Municipal · Santo Domingo Este',
+    'partners.junta-sanluis.desc':
+      'Local government of the San Luis district in Santo Domingo Este, supporting community development, youth initiatives, and public works for its residents.',
+    'partners.junta-sanluis.thanks':
+      'Institutional ally backing SABLE as a project that inspires young people in the district and beyond.',
 
     // CtaModal
     'cta-modal.badge': 'GET INVOLVED',
     'cta-modal.title': 'HOW DO YOU WANT TO SUPPORT SABLE?',
     'cta-modal.desc':
-      'Partner with the crew as a sponsor or follow us on Instagram to support the team from the pit lane.',
+      'Get tickets for the national event, partner as a sponsor, or follow us on Instagram from the pit lane.',
+    'cta-modal.tickets': 'GET TICKETS',
+    'cta-modal.tickets-desc': 'National STEM Racing event — Jun 13, 2026 at 8:00 AM on TIX.',
+    'cta-modal.tickets-aria': 'Buy tickets on TIX — National STEM Racing event June 13, 2026',
     'cta-modal.sponsor': 'BECOME A SPONSOR',
     'cta-modal.sponsor-desc': 'Alliance, branding, and track presence.',
     'cta-modal.support': 'SUPPORT ON INSTAGRAM',
@@ -110,6 +192,8 @@ export const translations: Record<Locale, Record<string, string>> = {
     'footer.tagline': 'SteelRacingRD apex division. Engineered for velocity.',
     'footer.status': 'SYSTEM STANDBY',
     'footer.status-value': 'READY',
+    'footer.tickets': 'EVENT TICKETS',
+    'footer.tickets-aria': 'Buy tickets for the National STEM Racing event on TIX',
     'footer.back-to-top': 'RETURN TO GRID',
     'footer.copyright': '© 2026 SABLE STEAMRACING. ENGINEERED FOR VELOCITY.',
   },
@@ -121,6 +205,8 @@ export const translations: Record<Locale, Record<string, string>> = {
     'nav.shop': 'Merchandising',
     'nav.sponsors': 'Sponsors',
     'nav.join': 'UNIRSE',
+    'nav.tickets': 'BOLETAS',
+    'nav.tickets-aria': 'Comprar boletas del evento en TIX',
     'nav.instagram': 'Seguir a @sablee.st en Instagram',
     'nav.menu-open': 'Abrir menú',
     'nav.menu-close': 'Cerrar menú',
@@ -135,30 +221,63 @@ export const translations: Record<Locale, Record<string, string>> = {
     'hero.system-value': '100%',
     'hero.aero': 'AERO ACTIVO',
     'hero.aero-value': 'MÁX',
+    'hero.event-badge': 'EVENTO NACIONAL',
+    'hero.cta-tickets': 'COMPRAR BOLETAS',
+    'hero.cta-tickets-date': '13 jun 2026 · 8:00 a. m.',
+    'hero.cta-tickets-aria': 'Comprar boletas del Evento Nacional STEM Racing en TIX — 13 de junio de 2026 a las 8:00 a. m.',
     'hero.cta': 'CONOCER AL EQUIPO',
     'hero.cta-instagram': 'SEGUIR EN IG',
     'hero.cta-secondary': 'VER MERCHANDISING',
     'hero.image-alt': 'Seis miembros del equipo SABLE con trajes de carreras granate y negro en formación.',
 
     // TeamSection
-    'team.subtitle': '01 // PERSONAL',
-    'team.heading': 'EL EQUIPO',
-    'team.telemetry': 'TELEMETRÍA EN VIVO',
-    'team.aero-label': 'Eficiencia Aero',
-    'team.structural-label': 'Integridad Estructural',
-    'team.rig-title': 'Simulador Activo',
-    'team.rig-desc': 'Ejecutando telemetría en tiempo real y análisis de estrés en la última configuración del chasis.',
-    'team.prev': 'Integrante anterior',
-    'team.next': 'Siguiente integrante',
-    'team.select': 'Ver integrante',
+    'team.subtitle': '01 // INTEGRANTES',
+    'team.heading': 'FICHAS DEL EQUIPO',
+    'team.intro':
+      'Cada ficha es un retrato throwback y el rol en el crew — diseño, manufactura, marketing y finanzas. Toca una tarjeta para ver el perfil completo.',
+    'team.roster-label': 'Plantilla activa',
+    'team.roster-unit': 'integrantes',
+    'team.scroll-hint': 'Desliza el muro de fichas →',
+    'team.tap-hint': 'Toca una ficha para abrir el dossier completo',
+    'team.expand': 'Abrir',
+    'team.view-member': 'Ver integrante',
+    'team.view-close': 'Cerrar ficha',
     'team.members.camila.name': 'CAMILA',
     'team.members.camila.role': 'DISEÑO Y SIMULACIÓN',
-    'team.members.camila.desc': 'Desde las calles de São Paulo hasta el simulador, Camila aporta precisión cruda a cada vuelta virtual. Su análisis de telemetría y algoritmos de diseño redefinen lo posible en aerodinámica digital.',
-    'team.members.camila.quote': 'SIN MIEDO. SOLO DATOS.',
-    'team.members.mateo.name': 'MATEO',
-    'team.members.mateo.role': 'INGENIERÍA DE CARRERA',
-    'team.members.mateo.desc': 'Mateo calibra cada stint desde el muro de boxes hasta el simulador. Sus hojas de setup y llamadas de estrategia mantienen al equipo sincronizado cuando los milisegundos deciden el resultado.',
-    'team.members.mateo.quote': 'PRECISIÓN ES RITMO.',
+    'team.members.camila.desc':
+      'Se encarga del diseño y la simulación de los autos — define cada concepto antes del rig o la pista.',
+    'team.members.camila.image-alt':
+      'Ficha de Camila: retrato throwback con rol de diseño y simulación.',
+    'team.members.adelin.name': 'ADELIN',
+    'team.members.adelin.role': 'DISEÑO Y MANUFACTURA',
+    'team.members.adelin.desc':
+      'Forma parte del equipo de diseño y manufactura — del boceto a las piezas que se fabrican.',
+    'team.members.adelin.image-alt':
+      'Ficha de Adelin: retrato throwback con rol de diseño y manufactura.',
+    'team.members.eidan.name': 'EIDAN',
+    'team.members.eidan.role': 'DISEÑO Y MARKETING',
+    'team.members.eidan.desc':
+      'Integra el diseño de autos y el marketing — une la ingeniería con cómo el equipo se muestra al público.',
+    'team.members.eidan.image-alt':
+      'Ficha de Eidan: retrato throwback con rol de diseño y marketing.',
+    'team.members.gabriel.name': 'GABRIEL',
+    'team.members.gabriel.role': 'DISEÑO Y FINANZAS',
+    'team.members.gabriel.desc':
+      'Se encarga del diseño de autos y las finanzas — sostiene el proyecto sin frenar el rendimiento.',
+    'team.members.gabriel.image-alt':
+      'Ficha de Gabriel: retrato throwback con rol de diseño y finanzas.',
+    'team.members.jared.name': 'JARED',
+    'team.members.jared.role': 'MARKETING Y CONTENIDO',
+    'team.members.jared.desc':
+      'Diseña nuestros posts y lidera el marketing — la voz y la imagen que el público ve del crew.',
+    'team.members.jared.image-alt':
+      'Ficha de Jared: retrato throwback con rol de marketing y contenido.',
+    'team.members.yule.name': 'YULE',
+    'team.members.yule.role': 'DISEÑO Y MANUFACTURA',
+    'team.members.yule.desc':
+      'Forma parte del equipo de diseño y manufactura — convierte ideas en piezas listas para correr.',
+    'team.members.yule.image-alt':
+      'Ficha de Yule: retrato throwback con rol de diseño y manufactura.',
 
     // AboutSection
     'about.subtitle': '01.5 // COMPETENCIA',
@@ -175,6 +294,17 @@ export const translations: Record<Locale, Record<string, string>> = {
     'about.image-badge': 'STEM / RD',
     'about.image-tag': '11–19 AÑOS',
     'about.footer-status': 'STEM RACING / 2026',
+    'about.video-cta': 'CURIOSIDADES DE STEM RACING',
+    'about.video-cta-hint': 'Video corto · datos y cómo funciona la competencia',
+    'about.video-modal-badge': 'VIDEO INFORMATIVO',
+    'about.video-modal-title': 'Curiosidades de STEM Racing',
+    'about.video-modal-desc':
+      'Conoce cómo funciona la competencia, qué enfrentan los equipos en pista y por qué STEM Racing importa en República Dominicana.',
+    'about.video-close': 'Cerrar video',
+    'about.video-play': 'Reproducir video',
+    'about.tickets-cta': 'COMPRAR BOLETAS DEL EVENTO',
+    'about.tickets-cta-hint': 'STEM Racing nacional · 13 jun 2026 · 8:00 a. m.',
+    'about.tickets-aria': 'Comprar boletas en TIX para el Evento Nacional STEM Racing',
 
     // ShopSection (merchandising del equipo — no es tienda)
     'shop.subtitle': '02 // MERCHANDISING',
@@ -192,23 +322,59 @@ export const translations: Record<Locale, Record<string, string>> = {
     'shop.footer-right': 'NO ESTÁ A LA VENTA',
 
     // PartnersSection
-    'partners.subtitle': 'Patrocinadores',
+    'partners.subtitle': '03 // ALIADOS',
     'partners.heading': 'En alianza con',
-    'partners.solvex-label': 'Socio técnico oficial del equipo SABLE.',
-    'partners.motoruedas-label': 'Aliado oficial que apoya al equipo SABLE.',
-    'partners.rbw-label': 'Aliado oficial del equipo SABLE.',
-    'partners.apolo27-label': 'Aliado oficial del equipo SABLE.',
-    'partners.junta-sanluis-label': 'Aliado institucional del equipo SABLE.',
+    'partners.intro':
+      'Marcas e instituciones que impulsan a SABLE dentro y fuera de pista — de software y movilidad a ingeniería y comunidad.',
     'partners.slot-code': 'ALIADO',
-    'partners.tap-hint': 'Toca una tarjeta para ver el logo del aliado',
+    'partners.tap-hint': 'Toca una tarjeta para ver el perfil completo del aliado',
+    'partners.read-more': 'Ver perfil',
     'partners.view-partner': 'Ver aliado',
-    'partners.view-close': 'Cerrar vista',
+    'partners.view-close': 'Cerrar perfil',
+    'partners.thanks-heading': 'Mensaje al equipo',
+    'partners.category.technical': 'Socio técnico',
+    'partners.category.automotive': 'Aliado automotriz',
+    'partners.category.institutional': 'Aliado institucional',
+    'partners.category.engineering': 'Aliado en ingeniería',
+    'partners.solvex.name': 'SOLVEX DOMINICANA',
+    'partners.solvex.role': 'Soluciones digitales y nube',
+    'partners.solvex.desc':
+      'Solvex Dominicana es una empresa de tecnología e innovación especializada en soluciones digitales, desarrollo de software y servicios en la nube, destacándose por impulsar la transformación tecnológica en diferentes sectores.',
+    'partners.solvex.thanks':
+      'Como socio técnico oficial de SABLE, Solvex respalda las herramientas, sistemas y base digital que mantienen al equipo competitivo.',
+    'partners.motoruedas.name': 'MOTORUEDAS',
+    'partners.motoruedas.role': 'Patrocinador de movilidad',
+    'partners.motoruedas.desc':
+      'Motoruedas se convirtió en patrocinador de SABLE: su respaldo impulsa este movimiento y demuestra que, cuando visiones distintas se unen, se pueden crear cosas grandes.',
+    'partners.motoruedas.thanks':
+      'Gracias por apostar por nosotros y ser parte de esto que todavía tiene mucho por mostrar en pista.',
+    'partners.rbw.name': 'RBW AUTO IMPORT',
+    'partners.rbw.role': 'Importación y venta de vehículos',
+    'partners.rbw.desc':
+      'RBW Auto Import es una empresa dedicada a la importación y venta de vehículos, ofreciendo calidad, confianza y una experiencia pensada para quienes aman el mundo automotriz.',
+    'partners.rbw.thanks':
+      'En SABLE estamos orgullosos de contar con su apoyo y de que formen parte de este movimiento creativo que va en marcha.',
+    'partners.apolo27.name': 'APOLO 27 GT',
+    'partners.apolo27.role': 'INTEC · Formula Student Spain 2026',
+    'partners.apolo27.desc':
+      'Proyecto universitario del INTEC que diseña y construye un monoplaza tipo fórmula para representar a República Dominicana en Formula Student Spain 2026 (Barcelona, 1–7 ago) — el mismo ADN de ingeniería aplicada que STEM Racing.',
+    'partners.apolo27.thanks':
+      'Un aliado que lleva el talento dominicano al escenario global del automovilismo y la ingeniería universitaria.',
+    'partners.junta-sanluis.name': 'JUNTA MUNICIPAL SAN LUIS',
+    'partners.junta-sanluis.role': 'Distrito Municipal · Santo Domingo Este',
+    'partners.junta-sanluis.desc':
+      'Gobierno local del distrito municipal San Luis en Santo Domingo Este, impulsando desarrollo comunitario, obras públicas e iniciativas para la juventud de la demarcación.',
+    'partners.junta-sanluis.thanks':
+      'Aliado institucional que respalda a SABLE como proyecto que inspira a jóvenes del distrito y del país.',
 
     // CtaModal
     'cta-modal.badge': 'SUMATE',
     'cta-modal.title': '¿CÓMO QUIERES APOYAR A SABLE?',
     'cta-modal.desc':
-      'Alíate como sponsor o síguenos en Instagram para apoyar al equipo desde la primera fila.',
+      'Compra boletas para el evento nacional, alíate como sponsor o síguenos en Instagram desde la primera fila.',
+    'cta-modal.tickets': 'COMPRAR BOLETAS',
+    'cta-modal.tickets-desc': 'Evento Nacional STEM Racing — 13 jun 2026, 8:00 a. m. en TIX.',
+    'cta-modal.tickets-aria': 'Comprar boletas en TIX — Evento Nacional STEM Racing 13 de junio de 2026',
     'cta-modal.sponsor': 'SER SPONSOR',
     'cta-modal.sponsor-desc': 'Alianza, branding y presencia en pista.',
     'cta-modal.support': 'APOYAR EN INSTAGRAM',
@@ -222,6 +388,8 @@ export const translations: Record<Locale, Record<string, string>> = {
     'footer.tagline': 'División apex de SteelRacingRD. Ingeniería para la velocidad.',
     'footer.status': 'SISTEMA EN ESPERA',
     'footer.status-value': 'LISTO',
+    'footer.tickets': 'BOLETAS DEL EVENTO',
+    'footer.tickets-aria': 'Comprar boletas del Evento Nacional STEM Racing en TIX',
     'footer.back-to-top': 'VOLVER A LA GRILLA',
     'footer.copyright': '© 2026 SABLE STEAMRACING. INGENIERÍA PARA LA VELOCIDAD.',
   },

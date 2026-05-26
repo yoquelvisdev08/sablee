@@ -1,7 +1,10 @@
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { useLanguage } from '../context/LanguageContext'
 import { useSectionReveal } from '../hooks/useSectionReveal'
+import TicketsLink from './TicketsLink'
 
 const SLOT_RACING_URL = '/images/slot-racing.jpg'
+const STEM_VIDEO_URL = '/images/video.mp4'
 
 const FEATURES = [
   {
@@ -23,6 +26,42 @@ const FEATURES = [
 export default function AboutSection() {
   const { sectionRef, revealClass, panelClass, staggerStyle } = useSectionReveal()
   const { t } = useLanguage()
+  const [videoOpen, setVideoOpen] = useState(false)
+  const videoRef = useRef<HTMLVideoElement>(null)
+
+  const openVideo = useCallback(() => setVideoOpen(true), [])
+
+  const closeVideo = useCallback(() => {
+    const video = videoRef.current
+    if (video) {
+      video.pause()
+      video.currentTime = 0
+    }
+    setVideoOpen(false)
+  }, [])
+
+  useEffect(() => {
+    if (!videoOpen) return
+
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') closeVideo()
+    }
+
+    window.addEventListener('keydown', onKeyDown)
+
+    const playTimer = window.setTimeout(() => {
+      void videoRef.current?.play()
+    }, 120)
+
+    return () => {
+      window.clearTimeout(playTimer)
+      document.body.style.overflow = previousOverflow
+      window.removeEventListener('keydown', onKeyDown)
+    }
+  }, [videoOpen, closeVideo])
 
   return (
     <section
@@ -115,6 +154,45 @@ export default function AboutSection() {
                   </p>
                 </div>
 
+                <div
+                  className={`flex max-w-xl flex-col gap-3 sm:flex-row sm:flex-wrap ${revealClass('hero-animate-delay-3')}`}
+                >
+                  <TicketsLink
+                    ariaLabel={t('about.tickets-aria')}
+                    className="group inline-flex flex-1 flex-col items-start gap-1 border-l-4 border-white bg-primary-container px-4 py-3 text-left transition-all duration-300 brutalist-border shadow-[4px_4px_0_#5d0412] hover:-translate-y-0.5 hover:bg-white hover:text-background hover:shadow-[6px_6px_0_#5d0412] active:scale-[0.99] sm:min-w-[240px] sm:flex-row sm:items-center sm:gap-3 sm:px-5 sm:py-3.5"
+                  >
+                    <span className="flex items-center gap-2">
+                      <span className="material-symbols-outlined text-2xl text-white transition-colors duration-300 group-hover:text-background">
+                        confirmation_number
+                      </span>
+                      <span className="font-mono text-[12px] font-medium uppercase tracking-[0.1em] text-white transition-colors duration-300 group-hover:text-background">
+                        {t('about.tickets-cta')}
+                      </span>
+                    </span>
+                    <span className="font-body text-[11px] leading-snug text-on-primary-container/85 transition-colors duration-300 group-hover:text-background/80 sm:ml-auto sm:text-xs">
+                      {t('about.tickets-cta-hint')}
+                    </span>
+                  </TicketsLink>
+
+                  <button
+                    type="button"
+                    onClick={openVideo}
+                    className="group inline-flex flex-1 flex-col items-start gap-1 border border-outline-variant/60 bg-surface-container-lowest/90 px-4 py-3 text-left transition-all duration-300 hover:border-primary hover:bg-surface-container-low active:scale-[0.99] sm:min-w-[220px] sm:flex-row sm:items-center sm:gap-3 sm:px-5 sm:py-3.5"
+                  >
+                    <span className="flex items-center gap-2">
+                      <span className="material-symbols-outlined text-2xl text-primary transition-transform duration-300 group-hover:scale-110">
+                        play_circle
+                      </span>
+                      <span className="font-mono text-[12px] font-medium uppercase tracking-[0.1em] text-white">
+                        {t('about.video-cta')}
+                      </span>
+                    </span>
+                    <span className="font-body text-[11px] leading-snug text-on-surface-variant sm:ml-auto sm:text-xs">
+                      {t('about.video-cta-hint')}
+                    </span>
+                  </button>
+                </div>
+
                 <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:hidden">
                   {FEATURES.map((feature, index) => (
                     <article
@@ -160,6 +238,16 @@ export default function AboutSection() {
                 <span className="absolute bottom-3 right-3 font-mono text-[9px] uppercase tracking-[0.2em] text-white/70">
                   {t('about.image-tag')}
                 </span>
+
+                <button
+                  type="button"
+                  onClick={openVideo}
+                  className="absolute bottom-3 left-3 inline-flex items-center gap-2 border border-outline-variant/60 bg-background/90 px-3 py-2 font-mono text-[10px] uppercase tracking-[0.12em] text-secondary backdrop-blur-sm transition-all duration-300 hover:border-primary hover:text-primary active:scale-95"
+                  aria-label={t('about.video-play')}
+                >
+                  <span className="material-symbols-outlined text-lg text-primary">smart_display</span>
+                  {t('about.video-cta')}
+                </button>
               </div>
             </div>
           </div>
@@ -170,6 +258,56 @@ export default function AboutSection() {
           </div>
         </div>
       </div>
+
+      {videoOpen && (
+        <div
+          className="popup-backdrop-in fixed inset-0 z-[10000] flex items-center justify-center p-4"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="about-video-title"
+          onClick={closeVideo}
+        >
+          <div
+            className="popup-panel-in relative flex w-full max-w-3xl flex-col overflow-hidden border-2 border-outline-variant bg-background shadow-[0_24px_80px_rgba(0,0,0,0.75)]"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={closeVideo}
+              className="absolute right-3 top-3 z-10 inline-flex h-9 w-9 items-center justify-center border border-outline-variant/70 bg-background/90 text-secondary transition-all duration-300 hover:border-primary hover:text-primary active:scale-95"
+              aria-label={t('about.video-close')}
+            >
+              <span className="material-symbols-outlined text-xl">close</span>
+            </button>
+
+            <div className="border-b border-outline-variant/40 bg-surface-container-low px-4 py-4 pr-14 sm:px-5 sm:py-5">
+              <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-primary">
+                {t('about.video-modal-badge')}
+              </span>
+              <h3
+                id="about-video-title"
+                className="mt-1 font-headline text-2xl uppercase tracking-tight text-white sm:text-3xl"
+              >
+                {t('about.video-modal-title')}
+              </h3>
+              <p className="mt-2 font-body text-sm leading-relaxed text-on-surface-variant sm:text-base">
+                {t('about.video-modal-desc')}
+              </p>
+            </div>
+
+            <div className="bg-black">
+              <video
+                ref={videoRef}
+                className="aspect-video w-full bg-black"
+                controls
+                playsInline
+                preload="metadata"
+                src={STEM_VIDEO_URL}
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   )
 }

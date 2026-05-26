@@ -2,6 +2,8 @@ import { useCallback, useEffect } from 'react'
 import { useCtaModal } from '../context/CtaModalContext'
 import { useLanguage } from '../context/LanguageContext'
 import InstagramLink from './InstagramLink'
+import TicketsLink from './TicketsLink'
+
 const TEAM_IMAGE_URL = '/images/team-sables.jpg'
 
 export default function CtaModal() {
@@ -90,6 +92,29 @@ export default function CtaModal() {
               </p>
             </div>
 
+            <TicketsLink
+              ariaLabel={t('cta-modal.tickets-aria')}
+              onClick={() => closeCtaModal(true)}
+              className="group flex min-h-[88px] w-full flex-col items-start justify-between border-l-4 border-white bg-primary-container p-3 text-left transition-all duration-300 brutalist-border shadow-[3px_3px_0_#5d0412] hover:-translate-y-0.5 hover:bg-white hover:text-background hover:shadow-[4px_4px_0_#5d0412] active:scale-[0.98] sm:min-h-[96px] sm:p-4"
+            >
+              <span className="flex w-full items-start justify-between gap-2">
+                <span className="material-symbols-outlined text-xl text-white transition-transform duration-300 group-hover:scale-110 group-hover:text-background">
+                  confirmation_number
+                </span>
+                <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-on-primary-container/90 transition-colors duration-300 group-hover:text-background/80">
+                  {t('hero.cta-tickets-date')}
+                </span>
+              </span>
+              <span>
+                <span className="block font-mono text-[11px] font-medium uppercase tracking-[0.1em] text-white group-hover:text-background sm:text-[12px]">
+                  {t('cta-modal.tickets')}
+                </span>
+                <span className="mt-1 block font-body text-[11px] leading-snug text-on-primary-container/85 group-hover:text-background/80 sm:text-xs">
+                  {t('cta-modal.tickets-desc')}
+                </span>
+              </span>
+            </TicketsLink>
+
             <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-3">
               <button
                 type="button"
@@ -111,16 +136,16 @@ export default function CtaModal() {
 
               <InstagramLink
                 onClick={() => closeCtaModal(true)}
-                className="group flex min-h-[88px] flex-col items-start justify-between border-l-4 border-white bg-primary-container p-3 text-left transition-all duration-300 brutalist-border shadow-[3px_3px_0_#5d0412] hover:-translate-y-0.5 hover:bg-white hover:text-background hover:shadow-[4px_4px_0_#5d0412] active:scale-[0.98] sm:min-h-[96px] sm:p-4"
+                className="group flex min-h-[88px] flex-col items-start justify-between border border-outline-variant/60 bg-surface-container-lowest/90 p-3 text-left transition-all duration-300 hover:border-primary hover:bg-surface-container-low active:scale-[0.98] sm:min-h-[96px] sm:p-4"
               >
-                <span className="material-symbols-outlined text-xl text-white transition-transform duration-300 group-hover:scale-110 group-hover:text-background">
+                <span className="material-symbols-outlined text-xl text-primary transition-transform duration-300 group-hover:scale-110">
                   photo_camera
                 </span>
                 <span>
-                  <span className="block font-mono text-[11px] font-medium uppercase tracking-[0.1em] text-white group-hover:text-background sm:text-[12px]">
+                  <span className="block font-mono text-[11px] font-medium uppercase tracking-[0.1em] text-white sm:text-[12px]">
                     {t('cta-modal.support')}
                   </span>
-                  <span className="mt-1 block font-body text-[11px] leading-snug text-on-primary-container/85 group-hover:text-background/80 sm:text-xs">
+                  <span className="mt-1 block font-body text-[11px] leading-snug text-on-surface-variant sm:text-xs">
                     {t('cta-modal.support-desc')}
                   </span>
                 </span>

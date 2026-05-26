@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { useLanguage } from '../context/LanguageContext'
 import { useCtaModal } from '../context/CtaModalContext'
+import TicketsLink from './TicketsLink'
 
 const LOGO_URL = '/images/logo-no-background.png'
 
@@ -163,10 +164,18 @@ export default function TopAppBar() {
               {locale === 'en' ? 'ES' : 'EN'}
             </button>
 
+            <TicketsLink
+              ariaLabel={t('nav.tickets-aria')}
+              className="hidden items-center gap-2 bg-primary-container px-4 py-2.5 font-mono text-[12px] font-medium uppercase tracking-[0.1em] text-on-primary-container transition-all duration-300 brutalist-border shadow-[3px_3px_0_#5d0412] hover:-translate-y-0.5 hover:bg-white hover:text-background hover:shadow-[4px_4px_0_#5d0412] active:scale-95 md:inline-flex lg:px-5"
+            >
+              <span className="material-symbols-outlined text-base">confirmation_number</span>
+              {t('nav.tickets')}
+            </TicketsLink>
+
             <button
               type="button"
               onClick={handleJoinClick}
-              className="hidden items-center gap-2 bg-primary-container px-5 py-2.5 font-mono text-[12px] font-medium uppercase tracking-[0.1em] text-on-primary-container transition-all duration-300 brutalist-border shadow-[3px_3px_0_#5d0412] hover:-translate-y-0.5 hover:bg-white hover:text-background hover:shadow-[4px_4px_0_#5d0412] active:scale-95 md:inline-flex"
+              className="hidden items-center gap-2 border border-outline-variant/60 bg-surface-container-lowest/80 px-4 py-2.5 font-mono text-[12px] font-medium uppercase tracking-[0.1em] text-secondary transition-all duration-300 hover:border-primary hover:text-primary active:scale-95 md:inline-flex lg:px-5"
             >
               <span className="material-symbols-outlined text-base">bolt</span>
               {t('nav.join')}
@@ -233,6 +242,19 @@ export default function TopAppBar() {
           </ul>
 
           <div className="mt-6 flex flex-col gap-3 border-t border-outline-variant/50 pt-6">
+            <TicketsLink
+              ariaLabel={t('nav.tickets-aria')}
+              onClick={closeMobile}
+              className="flex w-full flex-col items-start gap-1 border-l-4 border-white bg-primary-container px-6 py-4 font-mono text-[12px] uppercase tracking-[0.12em] text-white shadow-[4px_4px_0_#5d0412]"
+            >
+              <span className="flex items-center gap-2">
+                <span className="material-symbols-outlined">confirmation_number</span>
+                {t('nav.tickets')}
+              </span>
+              <span className="font-body text-[11px] normal-case tracking-normal text-on-primary-container/85">
+                {t('hero.cta-tickets-date')}
+              </span>
+            </TicketsLink>
             <button
               type="button"
               onClick={toggleLocale}
@@ -243,7 +265,7 @@ export default function TopAppBar() {
             <button
               type="button"
               onClick={handleJoinClick}
-              className="flex w-full items-center justify-center gap-2 border-l-4 border-white bg-primary-container px-6 py-4 font-mono text-[12px] uppercase tracking-[0.12em] text-white shadow-[4px_4px_0_#5d0412]"
+              className="flex w-full items-center justify-center gap-2 border border-outline-variant/60 bg-surface-container-lowest/80 px-6 py-4 font-mono text-[12px] uppercase tracking-[0.12em] text-secondary"
             >
               <span className="material-symbols-outlined">bolt</span>
               {t('nav.join')}
